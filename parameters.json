@@ -1,0 +1,24 @@
+{
+    "name": "0 Partisans Bots",
+    "seed": 1,
+
+    "size": 250,
+    "partisans": 0,
+    "propinquity": 0.95,
+    "clique_size": 10,
+    "node_out_degree": 12,
+
+    "feed_size": 3,
+    "like_weight": 1,
+    "resonance_like_thresh": 0.9,
+    "initial_confidence_numer": 2,
+    "initial_confidence_denom": 3,
+    "disconnect_confidence_thresh": 0.1,
+    "connect_confidence_thresh": 0.9,
+    "update_edges_probability": 0.05,
+    "belief_state_decay": 0.99,
+
+    "num_issues": 10,
+    "state_space_depth": 5,
+    "simulation_length": 200
+}
