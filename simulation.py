@@ -249,20 +249,8 @@ if __name__ == "__main__":
     plt.show()
     print(sim.polarization_over_time)
 
-    pos = sim.network.display_connection_graph(
-        "Binary",
-        sim.get_colors_by_kmeans(True),
-        sim.get_edge_colors_by_trust()
-    )
-    print("\n\n")
     sim.network.display_connection_graph(
-        "Not Binary",
+        "Network",
         sim.get_colors_by_kmeans(False),
         sim.get_edge_colors_by_trust(),
-        pos
     )
-    # for i in range(1, sim.num_issues):
-    #     sim.network.display_connection_graph(sim.get_colors_by_single_issue(i), pos)
-    
-    # for agent in sim.agents[:10]:
-    #     agent.plot_belief_state_evolution()
