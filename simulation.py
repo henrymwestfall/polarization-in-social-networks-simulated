@@ -95,13 +95,6 @@ class Simulation:
                 self.step()
                 if i % tenth == 0:
                     print(f"{10 * i // tenth}%", end="", flush=True)
-                    # pos = self.network.display_connection_graph(
-                    #     f"Social Network at Step {self.current_step}",
-                    #     self.get_colors_by_kmeans(False, False),
-                    #     self.get_edge_colors_by_trust(),
-                    #     pos,
-                    #     save_path=f"biggest/connections_step_{self.current_step}.png"
-                    # )
                 elif i % hundredth == 0:
                     print(".", end="", flush=True)
 
@@ -112,6 +105,13 @@ class Simulation:
             print("100%")
         except KeyboardInterrupt:
             print(f"\nKeyboard Interrupt, stopping simulation at step {self.current_step}")
+        
+        with open(self.name + "_silhouettes.txt", "w") as f:
+            for sil in self.silhouettes_by_step:
+                f.write(str(sil) + "\n")
+        with open(self.name + "_polarization.txt", "w") as f:
+            for pol in self.polarization_over_time:
+                f.write(str(pol) + "\n")
     
 
     def step(self) -> None:
@@ -179,7 +179,7 @@ class Simulation:
 
 
     def calculate_belief_state_kmeans(self, binary=False, plot=False):
-        X = np.array([agent.get_average_belief_states(binary=binary) for agent in self.agents])
+        X = np.array([agent.get_average_belief_states(binary=binary) for agent in self.agents if isinstance(agent, Agent)])
 
         models = []
         inertias = []

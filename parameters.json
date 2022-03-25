@@ -1,9 +1,9 @@
 {
-    "name": "0 Partisans Bots",
+    "name": "250 Agents With 80 Partisans",
     "seed": 1,
 
     "size": 250,
-    "partisans": 0,
+    "partisans": 80,
     "propinquity": 0.95,
     "clique_size": 10,
     "node_out_degree": 12,
